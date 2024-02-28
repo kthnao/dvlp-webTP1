@@ -3,7 +3,8 @@
 (function () {
   // TODO #export-functions: export function WelcomeComponent
   // TODO #class: use the ES6 class keyword
-  /* class WelcomeComponent constructor  */
+  /* class WelcomeComponent constructor */
+
   function WelcomeComponent() {
     // TODO #extends: call super(template)
     // TODO #import-html: assign template to this.template
@@ -41,7 +42,7 @@
   // TODO #class: turn function into a method of WelcomeComponent
   function _startGame(name, size) {
     // TODO #spa: replace with './#game'
-    var gamePage = "./game.html";
+    var gamePage = "./game";
     // TODO #template-literals:  use template literals (backquotes)
     window.location = gamePage + "?name=" + name + "&size=" + size;
   }
