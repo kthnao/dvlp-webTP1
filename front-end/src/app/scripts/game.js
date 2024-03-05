@@ -55,28 +55,20 @@ let CARD_TEMPLATE = ""
         // create cards out of the config
         this._cards = [];
         // TODO #functional-programming: use Array.map() instead.
-        for (let i in this._config.ids) {
-          this._cards[i] = new CardComponent(this._config.ids[i]);
-        }
+    
+        this._cards = this._config.ids.map(id => new CardComponent(id));
 
         // TODO #functional-programming: use Array.forEach() instead.
         // TODO #let-const: replace var with let.
-        for (let i in this._cards) {
-          let card = this._cards[i];
-          this._boardElement.appendChild(card.getElement());
-
-          card.getElement().addEventListener(
-            "click",
-            function () {
-              this._flipCard(card);
-            }.bind(this)
-          );
-        }
-
-        this.start();
-      },//.bind(this)
+        
+    this._cards.forEach(card => {
+      this._boardElement.appendChild(card.getElement());
+      card.getElement().addEventListener("click", () =>  this._flipCard(card));
+    });
+    this.start();
+       }
     );
-  }
+  };
   // removed _appendCard(card) { }
 
 
@@ -87,14 +79,14 @@ let CARD_TEMPLATE = ""
     let seconds = 0;
     // TODO #template-literals:  use template literals (backquotes)
     document.querySelector("nav .navbar-title").textContent =
-      `Player:${this._name}. Elapsed time: ${seconds++}`;
+      `Player: ${this._name}. Elapsed time: ${seconds++}`;
 
     this._timer = setInterval(
       // TODO #arrow-function: use arrow function instead.
        () => {
         // TODO #template-literals:  use template literals (backquotes)
         document.querySelector("nav .navbar-title").textContent =
-          `Player:${this._name}. Elapsed time: ${seconds++}`;
+          `Player: ${this._name}. Elapsed time: ${seconds++}`;
       },//.bind(this),
       1000
     );
