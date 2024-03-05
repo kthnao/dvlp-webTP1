@@ -34,7 +34,7 @@ import { Component } from "./component";
           var name = event.srcElement.querySelector("#nickname").value;
           var size = parseInt(event.srcElement.querySelector("#size").value);
 
-          _startGame(name, size);
+          this._startGame(name, size);
         }
       }.bind(this),
       false
