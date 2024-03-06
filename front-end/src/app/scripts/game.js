@@ -44,30 +44,20 @@ let CARD_TEMPLATE = ""
 
   // TODO #class: turn function into a method of GameComponent
   /* method GameComponent.init */
-   init() {
+  async init() {
     // fetch the cards configuration from the server
-    this.fetchConfig(
-      // TODO #arrow-function: use arrow function instead.
-       (config)=> {
-        this._config = config;
-        this._boardElement = document.querySelector(".cards");
+    this._config = await this.fetchConfig();
 
-        // create cards out of the config
-        this._cards = [];
-        // TODO #functional-programming: use Array.map() instead.
-    
-        this._cards = this._config.ids.map(id => new CardComponent(id));
-
-        // TODO #functional-programming: use Array.forEach() instead.
-        // TODO #let-const: replace var with let.
-        
-    this._cards.forEach(card => {
+    this._boardElement = document.querySelector(".cards");
+    // create cards out of the config
+    // TODO #functional-programming: use Array.map() instead.
+    this._cards = this._config.ids.map((id) => new CardComponent(id));
+    // TODO #functional-programming: use Array.forEach() instead.
+    this._cards.forEach((card) => {
       this._boardElement.appendChild(card.getElement());
-      card.getElement().addEventListener("click", () =>  this._flipCard(card));
+      card.getElement().addEventListener("click", () => this._flipCard(card));
     });
     this.start();
-       }
-    );
   };
   // removed _appendCard(card) { }
 
@@ -94,32 +84,11 @@ let CARD_TEMPLATE = ""
 
   // TODO #class: turn function into a method of GameComponent
   /* method GameComponent.fetchConfig */
-  fetchConfig(cb) {
-    let xhr =
-      typeof XMLHttpRequest != "undefined"
-        ? new XMLHttpRequest()
-        : new ActiveXObject("Microsoft.XMLHTTP");
-
-    // TODO #template-literals:  use template literals (backquotes)
-    xhr.open("get", `${environment.api.host}/board?size=${this._size}`, true);
-
-    // TODO #arrow-function: use arrow function instead.
-    xhr.onreadystatechange =  () => {
-      let status;
-      let data;
-      // https://xhr.spec.whatwg.org/#dom-xmlhttprequest-readystate
-      if (xhr.readyState == 4) {
-        // `DONE`
-        status = xhr.status;
-        if (status == 200) {
-          data = JSON.parse(xhr.responseText);
-          cb(data);
-        } else {
-          throw new Error(status);
-        }
-      }
-    };
-    xhr.send();
+  async fetchConfig() {
+    const response = await fetch(
+      `${environment.api.host}/board?size=${this._size}`
+    );
+    return response.json();
   };
 
   // TODO #class: turn function into a method of GameComponent
