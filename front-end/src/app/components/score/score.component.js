@@ -1,9 +1,13 @@
 // TODO #import-html: use ES default imports to import game.html as template
-import template from "../views/score.html";
-import { Component } from "./component";
+
+import { Component } from "../../scripts/component";
+
+import template from "./score.component.html";
+import "./score.component.css";
+
 
   // TODO #export-functions: export function ScoreComponent
-  import { parseUrl } from "./utils";
+  import { parseUrl } from "../../scripts/utils";
   // TODO #class: use the ES6 class keyword
   /* class ScoreComponent constructor */
   export class ScoreComponent extends Component{
