@@ -6,5 +6,5 @@ export function parseUrl(url = window.location.href) {
       const [k, v] = keyValue;
       params[k] = v;
       return params;
-    }, {});
+         }, {});
 }
