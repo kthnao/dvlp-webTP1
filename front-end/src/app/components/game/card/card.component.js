@@ -1,10 +1,7 @@
-
-  /* class CardComponent constructor */
+/* class CardComponent constructor */
 import "./card.component.scss";
 import { Component } from "../../../scripts/component";
 import CARD_TEMPLATE from "./card.component.html";
-
-
 
 import back from "./assets/back.png";
 import card0 from "./assets/card-0.png";
@@ -19,20 +16,20 @@ import card8 from "./assets/card-8.png";
 import card9 from "./assets/card-9.png";
 
 let CARDS_IMAGE = [
-    back,
-    card0,
-    card1,
-    card2,
-    card3,
-    card4,
-    card5,
-    card6,
-    card7,
-    card8,
-    card9,
-  ];  
-  export class CardComponent extends Component{
-    constructor(id) {
+  back,
+  card0,
+  card1,
+  card2,
+  card3,
+  card4,
+  card5,
+  card6,
+  card7,
+  card8,
+  card9,
+];
+export class CardComponent extends Component {
+  constructor(id) {
     super(CARD_TEMPLATE);
     // is this card flipped?
     this._flipped = false;
@@ -53,24 +50,24 @@ let CARDS_IMAGE = [
   }
 
   /* method CardComponent.getElement */
- getElement() {
+  getElement() {
     return this._elt;
-  };
+  }
 
   /* method CardComponent.flip */
   flip() {
     this._imageElt.classList.toggle("flip");
     this._flipped = !this._flipped;
-  };
+  }
 
   /* method CardComponent.equals */
   equals(card) {
     return card._id === this._id;
-  };
+  }
 
   /* CardComponent.get flipped() */
- 
-      get flipped () {
-        return this._flipped;
-      }
-    }
+
+  get flipped() {
+    return this._flipped;
+  }
+}

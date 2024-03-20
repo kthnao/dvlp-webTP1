@@ -5,17 +5,16 @@ import { CardComponent } from "./card/card.component";
 import template from "./game.component.html";
 import "./game.component.scss";
 
+let environment = {
+  api: {
+    host: "http://localhost:8081",
+  },
+};
 
-  let environment = {
-    api: {
-      host: "http://localhost:8081",
-    },
-  };
-
-  import { parseUrl } from "../../scripts/utils";
-  /* class GameComponent constructor */
-  export class GameComponent extends Component{
-    constructor(name) {
+import { parseUrl } from "../../scripts/utils";
+/* class GameComponent constructor */
+export class GameComponent extends Component {
+  constructor(name) {
     super(template);
     // gather parameters from URL
     const params = parseUrl();
@@ -26,7 +25,6 @@ import "./game.component.scss";
     this._flippedCard = null;
     this._matchedPairs = 0;
   }
-
 
   /* method GameComponent.init */
   async init() {
@@ -41,8 +39,7 @@ import "./game.component.scss";
       card.getElement().addEventListener("click", () => this._flipCard(card));
     });
     this.start();
-  };
-
+  }
 
   /* method GameComponent.start */
   start() {
@@ -51,42 +48,35 @@ import "./game.component.scss";
     document.querySelector("nav .navbar-title").textContent =
       `Player: ${this._name}. Elapsed time: ${seconds++}`;
 
-    this._timer = setInterval(
-       () => {
-        document.querySelector("nav .navbar-title").textContent =
-          `Player: ${this._name}. Elapsed time: ${seconds++}`;
-      },
-      1000
-    );
-  };
+    this._timer = setInterval(() => {
+      document.querySelector("nav .navbar-title").textContent =
+        `Player: ${this._name}. Elapsed time: ${seconds++}`;
+    }, 1000);
+  }
 
   /* method GameComponent.fetchConfig */
   async fetchConfig() {
     const response = await fetch(
-      `${environment.api.host}/board?size=${this._size}`
+      `${environment.api.host}/board?size=${this._size}`,
     );
     return response.json();
-  };
+  }
 
   /* method GameComponent.goToScore */
   goToScore() {
     let timeElapsedInSeconds = Math.floor(
-      (Date.now() - this._startTime) / 1000
+      (Date.now() - this._startTime) / 1000,
     );
     clearInterval(this._timer);
 
-    setTimeout(
-       () => {
-        let scorePage = "./#score";
-        window.location =
-          `${scorePage}?name=${this._name}&size=${this._size}&time=${timeElapsedInSeconds}`;
-      },
-      750
-    );
-  };
+    setTimeout(() => {
+      let scorePage = "./#score";
+      window.location = `${scorePage}?name=${this._name}&size=${this._size}&time=${timeElapsedInSeconds}`;
+    }, 750);
+  }
 
   /* method GameComponent._flipCard */
-   _flipCard(card) {
+  _flipCard(card) {
     if (this._busy) {
       return;
     }
@@ -122,29 +112,16 @@ import "./game.component.scss";
 
         // cards did not match
         // wait a short amount of time before hiding both cards
-        setTimeout(
-           () => {
-            // hide the cards
-            this._flippedCard.flip();
-            card.flip();
-            this._busy = false;
+        setTimeout(() => {
+          // hide the cards
+          this._flippedCard.flip();
+          card.flip();
+          this._busy = false;
 
-            // reset flipped card for the next turn.
-            this._flippedCard = null;
-          },
-          500
-        );
+          // reset flipped card for the next turn.
+          this._flippedCard = null;
+        }, 500);
       }
     }
-  };
+  }
 }
-
-  
-
-
-  
-
-  
-
-  
-

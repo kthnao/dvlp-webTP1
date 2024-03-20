@@ -1,20 +1,17 @@
-
-
-  /*****
+/*****
  * Score Component
  */
- $rotatezero:0deg;
- $rotatedix:-3deg;
- $rotatevingt:3deg;
- $rotatetrente:0deg;
- $rotatequarante:3deg;
- $rotatecinquante:-3deg;
- $rotatesoixante:0deg;
- $rotatesoixantedix:-3deg;
- $rotatequatrevingt:1deg;
- $rotatequatrevingtdix:0deg;
- $rotatecent :-3deg;
- 
+$rotatezero: 0deg;
+$rotatedix: -3deg;
+$rotatevingt: 3deg;
+$rotatetrente: 0deg;
+$rotatequarante: 3deg;
+$rotatecinquante: -3deg;
+$rotatesoixante: 0deg;
+$rotatesoixantedix: -3deg;
+$rotatequatrevingt: 1deg;
+$rotatequatrevingtdix: 0deg;
+$rotatecent: -3deg;
 
 .score-cmp img.happy:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
@@ -69,4 +66,3 @@
     transform: translate(1px, -2px) rotate($rotatecent);
   }
 }
-  

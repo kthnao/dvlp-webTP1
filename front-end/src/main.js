@@ -10,7 +10,6 @@ import { NavbarComponent } from "./app/components/navbar/navbar.component";
 
 customElements.define("my-navbar", NavbarComponent);
 
-
 const outlet = document.querySelector("#content-outlet");
 const router = new Router(outlet);
 router

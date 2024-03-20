@@ -3,10 +3,10 @@ import { Component } from "../../scripts/component";
 import template from "../welcome/welcome.component.html";
 import "./welcome.component.scss";
 
-  /* class WelcomeComponent constructor */
+/* class WelcomeComponent constructor */
 
-  export class WelcomeComponent extends Component{
-    constructor() {
+export class WelcomeComponent extends Component {
+  constructor() {
     super(template);
   }
 
@@ -16,7 +16,7 @@ import "./welcome.component.scss";
 
     form.addEventListener(
       "submit",
-       (event) => {
+      (event) => {
         event.preventDefault();
         if (form.checkValidity() === false) {
           event.stopPropagation();
@@ -28,16 +28,14 @@ import "./welcome.component.scss";
           this._startGame(name, size);
         }
       },
-      false
+      false,
     );
 
     return this;
-  };
+  }
 
   _startGame(name, size) {
     let gamePage = "./#game";
     window.location = `${gamePage}?name=${name}&size=${size}`;
-    
   }
 }
-
