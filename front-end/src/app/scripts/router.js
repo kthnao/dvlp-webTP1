@@ -1,14 +1,10 @@
-// TODO #export-router: remove this IIFE
-
   /**
    * Append an html template to the document, at the given outlet.
    * @param HTMLElement outlet the location on the document to add the template
    * @param HTMLElement template the template to append
    */
   function renderTemplate(outlet, template) {
-    // TODO #spa: use the DOM API to remove all childNodes of the outlet element
-    // TODO #spa: use the DOM API to append the 'template' element as a child of the 'outlet' element
-    while (outlet.lastChild) {
+  while (outlet.lastChild) {
       outlet.removeChild(outlet.lastChild);
   }
   outlet.appendChild(template);
@@ -18,7 +14,6 @@
    * Create a new router. This router will load components into the given outlet.
    * @param {HTMLElement} outlet The element to put components into.
    */
-  // TODO #export-router: export this function
   export function Router(outlet) {
     this._components = {};
     this._templates = {};
@@ -31,9 +26,6 @@
       this._onLocationChanged(event.newURL)
     );
   }
-  // TODO #export-router: remove this assignation
- // ligne enlevée window.Router = Router;
-
   /**
    * Bind a component ot be displayed when the registered URL is reached.
    * @param hash

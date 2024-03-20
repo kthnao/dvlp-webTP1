@@ -1,6 +1,4 @@
 
-// TODO #class: use the ES6 class keyword
-  // TODO #extends: extends Component
   /* class CardComponent constructor */
 import "./card.component.css";
 import { Component } from "../../../scripts/component";
@@ -35,7 +33,6 @@ let CARDS_IMAGE = [
   ];  
   export class CardComponent extends Component{
     constructor(id) {
-    // TODO #extends: call super(CARD_TEMPLATE)
     super(CARD_TEMPLATE);
     // is this card flipped?
     this._flipped = false;
@@ -60,20 +57,17 @@ let CARDS_IMAGE = [
     return this._elt;
   };
 
-  // TODO #class: turn function into a method of CardComponent
   /* method CardComponent.flip */
   flip() {
     this._imageElt.classList.toggle("flip");
     this._flipped = !this._flipped;
   };
 
-  // TODO #class: turn function into a method of CardComponent
   /* method CardComponent.equals */
   equals(card) {
     return card._id === this._id;
   };
 
-  // TODO #class: turn function into a method of CardComponent
   /* CardComponent.get flipped() */
  
       get flipped () {
