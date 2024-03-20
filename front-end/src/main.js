@@ -4,7 +4,7 @@ import { GameComponent } from "./app/components/game/game.component";
 import { ScoreComponent } from "./app/components/score/score.component";
 
 import "/node_modules/bootstrap/dist/css/bootstrap.css";
-import "./app/styles/style.css";
+import "./app/styles/style.scss";
 
 import { NavbarComponent } from "./app/components/navbar/navbar.component";
 

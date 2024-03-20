@@ -1,6 +1,6 @@
 
   /* class CardComponent constructor */
-import "./card.component.css";
+import "./card.component.scss";
 import { Component } from "../../../scripts/component";
 import CARD_TEMPLATE from "./card.component.html";
 

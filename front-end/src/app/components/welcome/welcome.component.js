@@ -1,7 +1,7 @@
 import { Component } from "../../scripts/component";
 
 import template from "../welcome/welcome.component.html";
-import "./welcome.component.css";
+import "./welcome.component.scss";
 
   /* class WelcomeComponent constructor */
 

@@ -3,7 +3,7 @@ import { Component } from "../../scripts/component";
 import { CardComponent } from "./card/card.component";
 
 import template from "./game.component.html";
-import "./game.component.css";
+import "./game.component.scss";
 
 
   let environment = {
