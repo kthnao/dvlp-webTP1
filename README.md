@@ -11,8 +11,8 @@ Une devDependency est une dépendance propre à l’environnement de développem
 4.	What is a closure/iife ? What was it used for ? What replaced it? 
 IIFE (Immediately Invoked Function Expression) est une fonnction qui est executé juste après avoir été déclarer. Un closure est une fonction qui se récupérer des informations d’autres fonctions même après qu’elles aient finit de s’exécuter. Cela permet de créer du code séparer du reste pouvant être appelé dans le code global. Cela est remplacé par des imports et des exports. 
 
-5.	What is the difference between import * from './utils' and import { parseUrl } from './utils'? What can be the consequences of using one instead of the other?
-Avec *, cela importe toutes les fonctions, qui sont exportées, présentes dans le fichier utils alors que { parseUrl } importe seulement la fonction parseUrl. Utiliser * peut amener à des erreurs ou des confusions si deux méthodes portent le même nom.
+5.	What is the difference between import * as toto from './utils' and import { parseUrl } from './utils'? What can be the consequences of using one instead of the other?
+Avec *, cela importe toutes les fonctions, qui sont exportées, présentes dans le fichier utils alors que { parseUrl } importe seulement la fonction parseUrl. Utiliser * peut amener à des erreurs ou des confusions si deux méthodes portent le même nom. Tandis qu'utiliser { parseUrl } permettrait une meilleure gestion de la mémoire.
 
 6.	Can you think of at least 2 things that are possible with Java classes, but cannot be done with ES6 classes?
 Il n’y a pas d’interface et de méthodes overload avec ES6 classes contrairement aux Java classes. 
